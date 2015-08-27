@@ -30,6 +30,9 @@ def test_get_weather_data():
 
 
 def test_smallest_tempreture_spread():
+    """
+    Ignores data where Dy is invalid
+    """
     test_data = [
         {
             'Dy': 1,
@@ -38,6 +41,11 @@ def test_smallest_tempreture_spread():
         },
         {
             'Dy': 2,
+            'MxT': 20,
+            'MnT': 5,
+        },
+        {
+            'Dy': 'mo',
             'MxT': 20,
             'MnT': 5,
         }
