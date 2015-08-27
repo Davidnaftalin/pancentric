@@ -1,4 +1,5 @@
-from football.football import get_football_data
+from football.football import get_football_data, min_for_against_diff
+
 
 def test_get_football_data():
     """
@@ -27,3 +28,25 @@ def test_get_football_data():
     assert get_football_data(
         source_data='tests/test_football.dat'
     ) == expected_data
+
+
+def test_for_against_diff():
+    test_data = [
+        {
+            'Team': 'Arsenal',
+            'P': 38,
+            'W': 26,
+            'F': 79,
+            'A': 36,
+        },
+        {
+            'Team': 'Liverpool',
+            'P': 38,
+            'W': 24,
+            'F': 67,
+            'A': 30,
+        },
+    ]
+
+    assert min_for_against_diff(test_data) == 'Liverpool'
+
