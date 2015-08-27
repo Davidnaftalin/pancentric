@@ -6,12 +6,13 @@ def test_get_weather_data():
     Parses into list of dicts
     Ignores '*'
     Parses float, int, str
+    Parses None values
     '''
     expected_data = [
         {
         'H1': 1,
         'H2': 2,
-        'H3': 3,
+        'H3': None,
         'H4': 1.0,
         'H5': 'RF',
         },
