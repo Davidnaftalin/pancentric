@@ -6,6 +6,7 @@ def test_get_football_data():
     Parses float, int, str
     Ignores numbering
     Ignores dash
+    Ignores invalid line
     """
     expected_data = [
         {

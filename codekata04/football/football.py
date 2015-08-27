@@ -8,11 +8,12 @@ def get_football_data(source_data):
 
     rows = []
     for line in file_data[1:]:
-        row = [
-            convert_value(value) for value in
-            re.findall('[\w]+', line[start_pos:])
-        ]
-        rows.append(row)
+        if not line.strip().startswith('-'):
+            row = [
+                convert_value(value) for value in
+                re.findall('[\w]+', line[start_pos:])
+            ]
+            rows.append(row)
 
     data = [dict(zip(headers, row)) for row in rows]
     return data
