@@ -4,6 +4,7 @@ def test_get_football_data():
     """
     Parses into list of dicts
     Parses float, int, str
+    Ignores numbering
     """
     expected_data = [
         {
