@@ -15,6 +15,12 @@ def get_weather_data(source_data):
     data = [dict(zip(headers, row)) for row in rows]
     return data
 
+
+def smallest_tempreture_spread(data):
+    ranges = {row['Dy']: row['MxT'] - row['MnT'] for row in data}
+    return min(ranges, key=ranges.get)
+
+
 def get_header_index(header_string):
     """
     Returns list of headers, list of tuples mapping last
@@ -48,6 +54,7 @@ def _isfloat(string):
     except ValueError:
         return False
 
+
 def convert_value(value):
     if value.isalpha():
         return value
@@ -56,3 +63,8 @@ def convert_value(value):
     if _isfloat(value):
         return float(value)
 
+
+if __name__ == '__main__':
+    data = get_weather_data('weather/weather.dat')
+    smallest_spread = smallest_tempreture_spread(data)
+    print smallest_spread
