@@ -17,7 +17,10 @@ def get_weather_data(source_data):
 
 
 def smallest_tempreture_spread(data):
-    ranges = {row['Dy']: row['MxT'] - row['MnT'] for row in data}
+    ranges = {
+        row['Dy']: row['MxT'] - row['MnT']
+        for row in data if type(row['Dy']) == int # Ensure valid row
+    }
     return min(ranges, key=ranges.get)
 
 
