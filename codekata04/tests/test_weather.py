@@ -4,6 +4,7 @@ from weather.weather import get_weather_data
 def test_get_weather_data():
     '''
     Parses into list of dicts
+    Ignores '*'
     '''
     expected_data = [
         {
